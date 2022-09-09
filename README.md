@@ -1,64 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# INTRODUCCION
+## Terminos Importantes:
+# UNIT TEST(PRUEBAS UNITARIAS)
+### Verifica que las unidades individuales de código funcionen según lo esperado.
+# Feature Tests(Pruebas de Funcionamiento)
+### Prueba de la forma en que las unidades individuales trabajan juntas y transmiten mensajes.
+# Regression Tests(Pruebas Regresion)
+### Describen exactamente lo que un usuario debería poder hacer.
+# HTTP Test
+### Permite hacer una solicitud http simple.
+# Authenticating Responses(Autenticando Respuestas)
+###Pruebas de aplicación en autenticación  y autorización.
+# Database tests (pruebas de base de datos)
+### Herramientas y afirmaciones para facilitar la prueba de aplicaciones basadas en bases de datos.
+# Creando un Nuevo Proyecto en Laravel.
+####Nos ubicamos en la carpeta xampp/htdocs/laravel2341240/ ; dentro de esta carpeta abrimos el cmd y ejecutamos el siguiente comando: laravel new (nombre del nuevo proyecto) ,en este caso es laravel new TestLaravel.
+#### Despues en el mismo cmd ponemos el siguiente codigo code .  este se hace con el fin de abrir el proyecto que hemos acabado de crear directamente en el Visual Studio Code.
+#### Nos ubicamos dentro de la raíz del proyecto laravel new TestLaravel , y nos encontramos la carpeta llamada tests(pruebas), si abrimos esta carpeta nos aparecerán dos subcarpetas, llamadas Feature (características) y Unit(unidades), y dos archivos php que es la aplicación de creación y la testcase.php.
+# Ejecutando pruebas.
+#### Nos ubicamos en la terminal y ejecutamos el siguiente comando: php artisan test, este se hace para ejecutan las pruebas que se encuentran en la carpeta Feature y Unit.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+#### No se han realizado cambios en el proyecto y por esta razón los dos test nos salen PASS
+#### Ejecutamos el siguiente comando: php artisan make:test  UserTest ,
+##### Esto creara una nueva prueba dentro de la carpeta de  Feature (funciones,) llamado UserTest.php
+#### Se vuelven ejecutar las pruebas de los test para verificar que el nuevo test creado funciona correctamente
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#### hacemos un cambio en el archivo de UserTest, como sigue:
+### Nos devuelve un error.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Creación de pruebas unitarias (Creating Unit Tests)
+#### En la terminal ejecutamos el siguiente comando php artisan make:test UserTest --unit, esto creara un archivo dentro de la carpeta de la unidad.
+# Otros Ejercicios:
+##### Ejecutamos el siguiente comando para crear una ui:
+##### composer require laravel/ui
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Con el comando php artisan ui react  - - auth se crea el módulo de autenticación y registro de usuarios que viene por defecto con laravel
+##### npm install  y el comando npm run dev inicia el servidor de frontend
+# Creando la base de datos en phpMyAdmin
+##### Para este proyecto, se crea por phpMyAdmin con el nombre testlaravel
+#### En el archivo .env se verifica que la base de datos tiene el mismo nombre que la que se acaba de crear.
+##### por consiguiente seguimos con la migracion la cual ejecutamos con el siguiente comando php artisan migrate el cual crea las tablas. en phpMyAdmin
+##### En el UserTest se modifica la función pública de test_login_form() y en la parte de Use se modifica Test\TestCase.y procedemos a ejecutar las pruebas en la terminal con el comando php artisan test.
+##### Despues de hacer este paso nos deberia cargar todo PASS , pero al ejecutarla una de las pruebas sale que el test UserTest es FAIL, y si por ende queremos ejecutar en el navegador con el comando php artisan serve no saldra un error al querer ingresar en el Login.ejecuta el comando npm install suguiere una nueva version disponible,por lo que se ejecuta el comando sugerido  npm install -g npm@8.19.1 ,despues de este comando se lanza de nuevo el comando npm run dev, despues de hacer todo eso regresamos a la terminal ejecutamos el comando php artisan serve para abrir el navegador y por ende nos deberia cargar el login correctamente.el Error se soluciono cambiando en la parte del funcion 400  en lugar de 200 y todos los test van en PASS.
 
-## Learning Laravel
+#### Se crea la aplicación para evitar que se creen dos usuarios con el mismo nombre o el mismo email, esta se crea en la parte de public function , entonces creamos dos arreglos  una llamada $user1 y  $user2 , se le ponen el 'name' y el 'email'. y en la parte de arriba nos deberia aparecer use App\Models\User .
+##### Finalmente en la terminal ejecutamos el comando php artisan test , con el fin de verificar que la funcion PASS pase todas las pruebas.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+![](https://github.com/Elysena/Test-Laravel/blob/master/img/Imagen1.png?raw=true)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![](https://github.com/Elysena/Test-Laravel/blob/master/img/Imagen10.png?raw=true)
 
-## Laravel Sponsors
+![](https://github.com/Elysena/Test-Laravel/blob/master/img/Imagen11.png?raw=true)
+![](https://github.com/Elysena/Test-Laravel/blob/master/img/Imagen12.png?raw=true)
+![](https://github.com/Elysena/Test-Laravel/blob/master/img/Imagen13.png?raw=true)
+![](https://github.com/Elysena/Test-Laravel/blob/master/img/Imagen14.png?raw=true)
+![](https://github.com/Elysena/Test-Laravel/blob/master/img/Imagen16.png?raw=true)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
